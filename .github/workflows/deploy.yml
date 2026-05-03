@@ -38,4 +38,9 @@ jobs:
         run: pnpm run build
 
       - name: Add 404.html (SPA routing fix)
-        run: cp client/dist/index.html c
+        run: cp dist/index.html dist/404.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "dist"
