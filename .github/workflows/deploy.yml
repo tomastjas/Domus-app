@@ -40,8 +40,10 @@ jobs:
       - name: Listar conteudo do dist
         run: ls -la dist/ && cat dist/index.html
 
-      - name: Add 404.html (SPA routing fix)
-        run: cp dist/index.html dist/404.html
+      - name: Add 404.html e nojekyll
+        run: |
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
