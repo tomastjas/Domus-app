@@ -1,0 +1,258 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * DOMUS — "Lumen Argentum" Design System
+ * Elegância Litúrgica Moderna
+ * Paleta: couro escuro + prata + âmbar dourado
+ * Tipografia: Cinzel (títulos), Cormorant Garamond (subtítulos), Source Sans 3 (corpo)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* DOMUS custom colors */
+  --color-domus-leather: oklch(0.15 0.02 60);
+  --color-domus-leather-light: oklch(0.2 0.025 55);
+  --color-domus-silver: oklch(0.78 0.005 260);
+  --color-domus-silver-bright: oklch(0.88 0.003 260);
+  --color-domus-amber: oklch(0.7 0.15 70);
+  --color-domus-amber-bright: oklch(0.8 0.14 75);
+  --color-domus-fire: oklch(0.65 0.2 45);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.12 0.015 55);
+  --foreground: oklch(0.88 0.005 60);
+  --card: oklch(0.16 0.018 55);
+  --card-foreground: oklch(0.88 0.005 60);
+  --popover: oklch(0.14 0.016 55);
+  --popover-foreground: oklch(0.88 0.005 60);
+  --primary: oklch(0.7 0.15 70);
+  --primary-foreground: oklch(0.12 0.015 55);
+  --secondary: oklch(0.2 0.02 55);
+  --secondary-foreground: oklch(0.78 0.005 260);
+  --muted: oklch(0.22 0.015 55);
+  --muted-foreground: oklch(0.6 0.01 55);
+  --accent: oklch(0.22 0.02 55);
+  --accent-foreground: oklch(0.88 0.005 60);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.3 0.02 55 / 40%);
+  --input: oklch(0.3 0.02 55 / 40%);
+  --ring: oklch(0.7 0.15 70);
+  --chart-1: oklch(0.7 0.15 70);
+  --chart-2: oklch(0.78 0.005 260);
+  --chart-3: oklch(0.65 0.2 45);
+  --chart-4: oklch(0.6 0.01 55);
+  --chart-5: oklch(0.5 0.02 55);
+  --sidebar: oklch(0.14 0.016 55);
+  --sidebar-foreground: oklch(0.88 0.005 60);
+  --sidebar-primary: oklch(0.7 0.15 70);
+  --sidebar-primary-foreground: oklch(0.12 0.015 55);
+  --sidebar-accent: oklch(0.22 0.02 55);
+  --sidebar-accent-foreground: oklch(0.88 0.005 60);
+  --sidebar-border: oklch(0.3 0.02 55 / 40%);
+  --sidebar-ring: oklch(0.7 0.15 70);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Source Sans 3', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d0b09;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c9822a40;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c9822a70;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* === DOMUS Design Tokens === */
+
+  /* Silver line separator */
+  .silver-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #b8b8b860, transparent);
+    width: 100%;
+  }
+
+  .silver-line-thick {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #b8b8b8, #d4d4d4, #b8b8b8, transparent);
+    width: 100%;
+  }
+
+  /* Amber/gold line */
+  .amber-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9822a60, transparent);
+    width: 100%;
+  }
+
+  .amber-line-thick {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c9822a, #e8a832, #c9822a, transparent);
+    width: 100%;
+  }
+
+  /* Emboss text effect (like engraved metal) */
+  .text-emboss {
+    text-shadow:
+      0 1px 0 #d4d4d420,
+      0 -1px 0 #00000080,
+      0 0 20px #b8b8b815;
+  }
+
+  .text-emboss-gold {
+    text-shadow:
+      0 1px 0 #e8a83220,
+      0 -1px 0 #00000080,
+      0 0 25px #c9822a20;
+  }
+
+  /* Metallic glow animation */
+  @keyframes metallic-shimmer {
+    0%, 100% { text-shadow: 0 0 15px #b8b8b810, 0 0 30px #b8b8b808; }
+    50% { text-shadow: 0 0 20px #b8b8b825, 0 0 40px #b8b8b815; }
+  }
+
+  .animate-metallic {
+    animation: metallic-shimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes amber-glow {
+    0%, 100% { text-shadow: 0 0 15px #c9822a15, 0 0 30px #c9822a08; }
+    50% { text-shadow: 0 0 25px #c9822a30, 0 0 50px #c9822a18; }
+  }
+
+  .animate-amber-glow {
+    animation: amber-glow 3s ease-in-out infinite;
+  }
+
+  /* Slow zoom for backgrounds */
+  @keyframes slow-zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+  }
+
+  .animate-slow-zoom {
+    animation: slow-zoom 30s ease-in-out alternate infinite;
+  }
+
+  /* Leather texture overlay */
+  .leather-texture {
+    position: relative;
+  }
+  .leather-texture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Fade in from bottom */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 1s ease-out forwards;
+  }
+}
