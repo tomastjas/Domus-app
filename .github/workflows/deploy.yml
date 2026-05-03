@@ -37,8 +37,8 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Listar arquivos gerados
-        run: find . -name "index.html" | head -20
+    - name: Listar conteudo do dist
+        run: ls -la dist/ && cat dist/index.html
 
       - name: Add 404.html (SPA routing fix)
         run: cp dist/index.html dist/404.html
