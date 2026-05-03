@@ -13,7 +13,7 @@ export default defineConfig({
   },
   envDir: path.resolve(import.meta.dirname),
   root: path.resolve(import.meta.dirname, "client"),
-  base: "./",
+  base: "/Domus-app/",
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
